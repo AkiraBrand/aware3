@@ -9,16 +9,16 @@ describe('Church', function() {
   });
 
   it('has attributes', function(){
-    var church = new Church('Catholic', 100, true);
+    var church = new Church('Catholic', 100, true, ["Guitar"]);
 
     assert.equal(church.denomination, 'Catholic');
     assert.equal(church.congregationSize, 100);
     assert.equal(church.isOpen, true);
-    assert.equal(church.worshipBand, []);
+    assert.deepEqual(church.worshipBand, ["Guitar"]);
   });
 
   it('can close down', function() {
-    var church = new Church('Catholic', 100, true);
+    var church = new Church('Catholic', 100, true, ["Guitar"]);
 
     church.closeDown();
 
@@ -26,7 +26,7 @@ describe('Church', function() {
   });
 
   it('can add congregants', function() {
-    var church = new Church('Catholic', 100, true);
+    var church = new Church('Catholic', 100, true, ["Guitar"]);
 
     church.addCongregant();
 
@@ -34,13 +34,11 @@ describe('Church', function() {
   });
 
   it('can add worship band instruments', function() {
-    var church = new Church('Catholic', 100, true);
+    var church = new Church('Catholic', 100, true, ["Guitar"]);
 
-    church.addWorshipInstruments("piano");
+    church.addWorshipInstruments("Piano");
 
-    expect({church.worshipBand})
-    assert.deepEqual((church.worshipBand), ["piano"]);
+    assert.deepEqual(church.worshipBand, ["Guitar", "Piano"]);
   });
-
 
 });
