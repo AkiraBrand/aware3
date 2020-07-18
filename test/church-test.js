@@ -8,10 +8,12 @@ describe('Church', function() {
   });
 
   it('has attributes', function(){
-    var church = new Church('Catholic', 100)
+    var church = new Church('Catholic', 100, true, ["guitar"]);
 
     assert.equal(church.denomination, 'Catholic');
     assert.equal(church.congregationSize, 100);
+    assert.equal(church.isOpen, true);
+    assert.equal(church.worshipBand, "guitar");
   });
 
 });
